@@ -4,11 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using Zenject;
 
-namespace AppEditor.installers {
+namespace AppEditor.Installers {
 	[InitializeOnLoad]
-	public class Editorinstallers :EditorStaticInstaller<Editorinstallers> {
+	public class EditorInstallers :EditorStaticInstaller<EditorInstallers> {
 
-		public Editorinstallers() {
+		public EditorInstallers() {
 			Debug.Log("exec");
 			EditorApplication.QueuePlayerLoopUpdate();
 			Install();

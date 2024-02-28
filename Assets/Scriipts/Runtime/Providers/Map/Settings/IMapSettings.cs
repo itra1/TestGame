@@ -2,7 +2,7 @@
 
 namespace App.Providers.Map.Settings {
 	public interface IMapSettings {
-		public Vector2 MapSize { get; }
+		public float CellSize { get; }
 		public Vector2Int CellsCount { get; }
 	}
 }

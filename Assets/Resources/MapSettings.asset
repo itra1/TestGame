@@ -10,5 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fa6fdc206351cd4fabfde9b72dd18c7, type: 3}
-  m_Name: MapSettiings
+  m_Name: MapSettings
   m_EditorClassIdentifier: 
+  _cellSize: 0
+  _cellsCount: {x: 0, y: 0}
+  _cellVariations:
+  - _cost: 1
+    _color: {r: 0.10893285, g: 1, b: 0, a: 1}
+  - _cost: 2
+    _color: {r: 1, g: 0.99777603, b: 0, a: 1}
+  - _cost: -1
+    _color: {r: 0, g: 0.07986283, b: 1, a: 1}

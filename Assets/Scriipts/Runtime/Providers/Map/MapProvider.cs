@@ -8,5 +8,9 @@ namespace App.Providers.Map {
 		public MapProvider(IMapSettings settings) {
 			_settings = settings;
 		}
+
+		public void Generate() {
+
+		}
 	}
 }
