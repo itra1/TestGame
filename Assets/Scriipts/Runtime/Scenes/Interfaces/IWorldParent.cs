@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace App.Scenes.Interfaces {
-	internal interface IWorld {
+	internal interface IWorldParent {
 		Transform WorldParent { get; }
 	}
 }
