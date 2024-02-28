@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MapSettings
   m_EditorClassIdentifier: 
   _cellSize: 0.75
-  _cellsCount: {x: 4, y: 8}
+  _cellsCount: {x: 10, y: 10}
   _cellVariations:
   - _cost: 1
     _color: {r: 0.10893285, g: 1, b: 0, a: 1}

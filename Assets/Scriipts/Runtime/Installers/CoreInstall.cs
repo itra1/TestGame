@@ -1,3 +1,4 @@
+using App.Listeners;
 using App.Providers.Game;
 using App.Providers.Map;
 using App.Providers.Map.Common;
@@ -27,6 +28,7 @@ namespace App.Installers {
 			Container.BindInterfacesAndSelfTo<WindowsProvider>().AsSingle().NonLazy();
 
 			Container.BindInterfacesAndSelfTo<GameProvider>().AsSingle().NonLazy();
+			Container.BindInterfacesAndSelfTo<WorldClickListener>().AsSingle().NonLazy();
 
 			Container.BindInterfacesAndSelfTo<AppRun>().AsSingle().NonLazy();
 
@@ -42,6 +44,7 @@ namespace App.Installers {
 			Container.Resolve<IWindowsProvider>();
 			Container.Resolve<IGameProvider>();
 			Container.Resolve<IMapGround>();
+			Container.Resolve<IWorldClickListener>();
 		}
 	}
 }
