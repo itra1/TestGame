@@ -3,5 +3,6 @@
 namespace App.Settings {
 	public interface IAppSettings {
 		PlayerActor PlayerActor { get; }
+		int StepInDays { get; }
 	}
 }

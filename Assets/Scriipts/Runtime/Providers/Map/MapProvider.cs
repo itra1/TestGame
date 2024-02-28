@@ -58,13 +58,14 @@ namespace App.Providers.Map {
 			return nearest;
 		}
 
-		public int GetCostPath(ICell currentPlayerCell, ICell cellToMove) {
+		public int GetCostPath(ICell cellFrom, ICell cellTo) {
+			Vector2Int delta = cellTo.Coordinate - cellFrom.Coordinate;
 			Vector2Int increment = new(
-			(int)Mathf.Sign(cellToMove.Coordinate.x - currentPlayerCell.Coordinate.x),
-			(int)Mathf.Sign(cellToMove.Coordinate.y - currentPlayerCell.Coordinate.y));
-			Vector2Int currentCoordinate = currentPlayerCell.Coordinate;
+			delta.x == 0 ? 0 : (int)Mathf.Sign(delta.x),
+			delta.y == 0 ? 0 : (int)Mathf.Sign(delta.y));
+			Vector2Int currentCoordinate = cellFrom.Coordinate;
 			int allCost = 0;
-			while (currentCoordinate != cellToMove.Coordinate) {
+			while (currentCoordinate != cellTo.Coordinate) {
 				currentCoordinate += increment;
 				ICell newCell = GetCellByCoordinate(currentCoordinate);
 				if (newCell.IsBlock || newCell.IsLock)

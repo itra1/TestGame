@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AppSettings
   m_EditorClassIdentifier: 
   _playerActor: {fileID: 497847553979677595, guid: f0a4a5c0b15d7c8489eea88a3a822721, type: 3}
+  _stepInDay: 7
