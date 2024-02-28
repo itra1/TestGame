@@ -1,16 +1,20 @@
 using App.Providers.Game;
 using App.Providers.Map;
+using App.Providers.Map.Common;
 using App.Providers.Map.Factorys;
 using App.Providers.Map.Settings;
-using App.Providers.Player;
+using App.Providers.Players;
 using App.Providers.UI.Windows;
 using App.Scenes;
+using App.Settings;
 using Zenject;
 
 namespace App.Installers {
 	public class CoreInstall :MonoInstaller {
 
 		public override void InstallBindings() {
+
+			Container.BindInterfacesAndSelfTo<AppSettings>().FromResource("AppSettings");
 
 			Container.BindInterfacesAndSelfTo<SceneProvider>().FromInstance(FindAnyObjectByType<SceneProvider>());
 
@@ -30,12 +34,14 @@ namespace App.Installers {
 		}
 
 		private void ResolveAll() {
+			Container.Resolve<IAppSettings>();
 			Container.Resolve<IMapSettings>();
 			Container.Resolve<ICellFactory>();
 			Container.Resolve<IMapProvider>();
 			Container.Resolve<IPlayerProvider>();
 			Container.Resolve<IWindowsProvider>();
 			Container.Resolve<IGameProvider>();
+			Container.Resolve<IMapGround>();
 		}
 	}
 }

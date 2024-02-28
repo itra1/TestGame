@@ -5,12 +5,22 @@ using UnityEngine;
 namespace App.Providers.Map.Cells {
 	public class Cell :ICell, IDisposable {
 
-		private SpriteRenderer _gameCell;
+		private SpriteRenderer _actor;
 		private ICellVariation _variant;
+		private Vector2Int _coordinate;
 
 		public int Cost => _variant == null ? -1 : _variant.Cost;
 		public bool IsBlock => _variant == null ? true : _variant.IsBlock;
-		public Vector2 Position { get; }
+		public object Locker { get; set; }
+		public bool IsLock => Locker != null;
+		public Vector3 WorldPosition {
+			get {
+				if (_actor == null)
+					throw new System.NullReferenceException("Cell no exists view");
+				return _actor.transform.position;
+			}
+		}
+
 
 		public Cell() {
 
@@ -22,9 +32,9 @@ namespace App.Providers.Map.Cells {
 		}
 
 		public void Dispose() {
-			if (_gameCell != null) {
-				MonoBehaviour.Destroy(_gameCell.gameObject);
-				_gameCell = null;
+			if (_actor != null) {
+				MonoBehaviour.Destroy(_actor.gameObject);
+				_actor = null;
 			}
 			_variant = null;
 		}
@@ -35,16 +45,19 @@ namespace App.Providers.Map.Cells {
 		}
 
 		public void SetSpriteRenderer(SpriteRenderer spriteRenderer) {
-			_gameCell = spriteRenderer;
+			_actor = spriteRenderer;
 			ConfirmCellVariant();
 		}
 
 		private void ConfirmCellVariant() {
-			if (_gameCell == null || _variant == null)
+			if (_actor == null || _variant == null)
 				return;
-			_gameCell.color = _variant.Color;
+			_actor.color = _variant.Color;
 
 		}
 
+		public void SetCoordinate(Vector2Int coordinate) {
+			_coordinate = coordinate;
+		}
 	}
 }

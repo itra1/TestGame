@@ -1,5 +1,5 @@
 ﻿using App.Providers.Map;
-using App.Providers.Player;
+using App.Providers.Players;
 
 namespace App.Providers.Game {
 	public class GameProvider :IGameProvider {

@@ -1,6 +1,7 @@
-﻿using App.Scenes.Interfaces;
+﻿using App.Providers.Map.Common;
+using App.Scenes.Interfaces;
 
 namespace App.Scenes {
-	public interface ISceneProvider :IWorldParent {
+	public interface ISceneProvider :IWorldParent, IMapGround {
 	}
 }
