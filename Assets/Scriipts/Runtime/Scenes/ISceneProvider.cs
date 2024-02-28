@@ -1,6 +1,6 @@
 ﻿using App.Scenes.Interfaces;
 
 namespace App.Scenes {
-	internal interface ISceneProvider :IWorldParent {
+	public interface ISceneProvider :IWorldParent {
 	}
 }

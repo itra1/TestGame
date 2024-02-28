@@ -1,3 +1,4 @@
+using App.Providers.Game;
 using App.Providers.Map;
 using App.Providers.Map.Factorys;
 using App.Providers.Map.Settings;
@@ -21,6 +22,10 @@ namespace App.Installers {
 
 			Container.BindInterfacesAndSelfTo<WindowsProvider>().AsSingle().NonLazy();
 
+			Container.BindInterfacesAndSelfTo<GameProvider>().AsSingle().NonLazy();
+
+			Container.BindInterfacesAndSelfTo<AppRun>().AsSingle().NonLazy();
+
 			ResolveAll();
 		}
 
@@ -30,6 +35,7 @@ namespace App.Installers {
 			Container.Resolve<IMapProvider>();
 			Container.Resolve<IPlayerProvider>();
 			Container.Resolve<IWindowsProvider>();
+			Container.Resolve<IGameProvider>();
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace App.Providers.Map.Cells {
 		private ICellVariation _variant;
 
 		public int Cost => _variant == null ? -1 : _variant.Cost;
-		public bool isBlock => _variant == null ? true : _variant.IsBlock;
+		public bool IsBlock => _variant == null ? true : _variant.IsBlock;
 		public Vector2 Position { get; }
 
 		public Cell() {
