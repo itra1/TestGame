@@ -1,9 +1,9 @@
 using App.Listeners;
 using App.Providers.Game;
-using App.Providers.Map;
-using App.Providers.Map.Common;
-using App.Providers.Map.Factorys;
-using App.Providers.Map.Settings;
+using App.Providers.Maps;
+using App.Providers.Maps.Common;
+using App.Providers.Maps.Factorys;
+using App.Providers.Maps.Settings;
 using App.Providers.Players;
 using App.Providers.UI.Windows;
 using App.Scenes;

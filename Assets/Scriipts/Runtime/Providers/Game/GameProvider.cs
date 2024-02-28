@@ -1,5 +1,5 @@
 ﻿using App.Providers.Game.Common;
-using App.Providers.Map;
+using App.Providers.Maps;
 using App.Providers.Players;
 using UnityEngine.Events;
 using Zenject;

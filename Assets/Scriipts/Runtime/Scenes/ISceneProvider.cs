@@ -1,4 +1,4 @@
-﻿using App.Providers.Map.Common;
+﻿using App.Providers.Maps.Common;
 using App.Scenes.Interfaces;
 
 namespace App.Scenes {

@@ -1,4 +1,4 @@
-﻿namespace App.Providers.Map.Factorys {
+﻿namespace App.Providers.Maps.Factorys {
 	public interface ICellFactory {
 
 		//ICell GetInstance(ICellVariation cell);

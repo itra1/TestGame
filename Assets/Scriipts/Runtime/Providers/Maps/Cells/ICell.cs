@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-namespace App.Providers.Map.Cells {
-	public interface ICell {
+namespace App.Providers.Maps.Cells {
+	public interface ICell :IDisposable {
 		int Cost { get; }
 		bool IsBlock { get; }
 		object Locker { get; set; }

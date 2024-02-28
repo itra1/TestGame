@@ -1,5 +1,6 @@
-﻿using App.Providers.Map.Cells;
+﻿using App.Providers.Maps.Cells;
 using App.Providers.Players.Actors;
+using UnityEngine;
 
 namespace App.Providers.Players.Common {
 	public interface IPlayer {
@@ -8,5 +9,6 @@ namespace App.Providers.Players.Common {
 
 		void SetActor(IPlayerActor actor);
 		void SetPositionCell(ICell positionCell);
+		void MoveToWorldPosition(Vector3 position);
 	}
 }

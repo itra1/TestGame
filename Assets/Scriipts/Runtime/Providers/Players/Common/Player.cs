@@ -1,9 +1,9 @@
-﻿using App.Providers.Map.Cells;
+﻿using App.Providers.Maps.Cells;
 using App.Providers.Players.Actors;
 using UnityEngine;
 
 namespace App.Providers.Players.Common {
-	public class Player :IPlayer {
+	public partial class Player :IPlayer {
 		[SerializeField] private Vector2Int _cellCosition;
 		[SerializeField] private IPlayerActor _actor;
 
@@ -14,12 +14,5 @@ namespace App.Providers.Players.Common {
 			_actor = actor;
 		}
 
-		public void SetPositionCell(ICell positionCell) {
-			if (CellPosition != null)
-				CellPosition.Locker = null;
-			CellPosition = positionCell;
-			CellPosition.Locker = true;
-			(_actor as Component).transform.position = CellPosition.WorldPosition;
-		}
 	}
 }

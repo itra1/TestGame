@@ -1,9 +1,8 @@
-﻿using System;
-using App.Providers.Map.Settings;
+﻿using App.Providers.Maps.Settings;
 using UnityEngine;
 
-namespace App.Providers.Map.Cells {
-	public class Cell :ICell, IDisposable {
+namespace App.Providers.Maps.Cells {
+	public class Cell :ICell {
 
 		private SpriteRenderer _actor;
 		private ICellVariation _variant;
@@ -22,10 +21,6 @@ namespace App.Providers.Map.Cells {
 		}
 
 		public Vector2Int Coordinate => _coordinate;
-
-		public Cell() {
-
-		}
 
 		public Cell(SpriteRenderer renderer, ICellVariation variant) {
 			SetSpriteRenderer(renderer);

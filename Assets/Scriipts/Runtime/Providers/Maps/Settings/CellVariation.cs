@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace App.Providers.Map.Settings {
+namespace App.Providers.Maps.Settings {
 	[System.Serializable]
 	public class CellVariation :ICellVariation {
 		[SerializeField] private int _cost;

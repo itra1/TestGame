@@ -1,5 +1,5 @@
-﻿using App.Providers.Map;
-using App.Providers.Map.Cells;
+﻿using App.Providers.Maps;
+using App.Providers.Maps.Cells;
 using App.Providers.Players;
 using App.Settings;
 using UnityEngine;
@@ -40,20 +40,20 @@ namespace App.Providers.Game.Common {
 			if (!IsStart)
 				return;
 
-			ICell cellToMove = _mapProvider.GetNearestCell(position);
+			ICell cellToMove = _mapProvider.Map.GetNearestCell(position);
 			if (cellToMove.IsBlock || cellToMove.IsLock)
 				return;
 			ICell currentPlayerCell = _playerProvider.GetPlayerCell();
 			if (!currentPlayerCell.InOneLine(cellToMove))
 				return;
 
-			int costPath = _mapProvider.GetCostPath(currentPlayerCell, cellToMove);
+			int costPath = _mapProvider.Map.GetCostPath(currentPlayerCell, cellToMove);
 			if (costPath < 0)
 				return;
 			if (CurrentSteps < costPath)
 				return;
 			SetSteps(CurrentSteps - costPath);
-			_playerProvider.MoveToWorldPosition(position);
+			_playerProvider.Player.MoveToWorldPosition(position);
 		}
 
 		public void NextDay() {

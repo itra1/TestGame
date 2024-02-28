@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace App.Providers.Map.Settings {
+namespace App.Providers.Maps.Settings {
 	[CreateAssetMenu(fileName = "MapSettings", menuName = "App/Map/Settings/Create Settings")]
 	public class MapSettings :ScriptableObject, IMapSettings {
 		[SerializeField] private float _cellSize;
