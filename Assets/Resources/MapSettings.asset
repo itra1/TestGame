@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa6fdc206351cd4fabfde9b72dd18c7, type: 3}
   m_Name: MapSettings
   m_EditorClassIdentifier: 
-  _cellSize: 0
-  _cellsCount: {x: 0, y: 0}
+  _cellSize: 0.75
+  _cellsCount: {x: 4, y: 8}
   _cellVariations:
   - _cost: 1
     _color: {r: 0.10893285, g: 1, b: 0, a: 1}
@@ -21,3 +21,4 @@ MonoBehaviour:
     _color: {r: 1, g: 0.99777603, b: 0, a: 1}
   - _cost: -1
     _color: {r: 0, g: 0.07986283, b: 1, a: 1}
+  _gameItem: {fileID: 491908961262611650, guid: 4e6056644aadca643a53b2a01e72a7bd, type: 3}
