@@ -1,17 +1,23 @@
-﻿using App.Providers.Map;
+﻿using App.Providers.Game.Common;
+using App.Providers.Map;
 using App.Providers.Players;
+using Zenject;
 
 namespace App.Providers.Game {
 	public class GameProvider :IGameProvider {
-		private IMapProvider _mapProvider;
-		private IPlayerProvider _playerProvider;
-		public GameProvider(IMapProvider mapProvider, IPlayerProvider playerProvider) {
-			_mapProvider = mapProvider;
-			_playerProvider = playerProvider;
+		private DiContainer _contaider;
+		private IGameSession _gameSession;
+		public GameProvider(DiContainer contaider, IMapProvider mapProvider, IPlayerProvider playerProvider) {
+			_contaider = contaider;
 		}
+
+		public IGameSession GameSession => _gameSession;
+
 		public void RunGame() {
-			_mapProvider.GenerateMap();
-			_playerProvider.SpawnPlayer();
+			_gameSession = new GameSession();
+			_contaider.Inject(_gameSession);
+			_gameSession.RunGame();
 		}
+
 	}
 }

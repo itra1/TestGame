@@ -18,6 +18,15 @@ namespace App.Providers.Players {
 			_mapProvider = mapProvider;
 		}
 
+		public ICell GetPlayerCell() {
+			return _player.CellPosition;
+		}
+
+		public void MoveToWorldPosition(Vector3 position) {
+			ICell cell = _mapProvider.GetNearestCell(position);
+			_player.SetPositionCell(cell);
+		}
+
 		public void SpawnPlayer() {
 			if (_appSettings.PlayerActor == null)
 				throw new System.NullReferenceException();

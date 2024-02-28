@@ -21,6 +21,7 @@ namespace App.Providers.Map.Cells {
 			}
 		}
 
+		public Vector2Int Coordinate => _coordinate;
 
 		public Cell() {
 
@@ -58,6 +59,10 @@ namespace App.Providers.Map.Cells {
 
 		public void SetCoordinate(Vector2Int coordinate) {
 			_coordinate = coordinate;
+		}
+
+		public bool InOneLine(ICell targetCell) {
+			return _coordinate.x == targetCell.Coordinate.x || _coordinate.y == targetCell.Coordinate.y;
 		}
 	}
 }

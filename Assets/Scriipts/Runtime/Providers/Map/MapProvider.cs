@@ -44,5 +44,34 @@ namespace App.Providers.Map {
 			List<ICell> openCells = _cells.FindAll(x => !x.IsBlock);
 			return openCells[Random.Range(0, openCells.Count)];
 		}
+
+		private ICell GetCellByCoordinate(Vector2Int coordinate) {
+			return _cells.Find(x => x.Coordinate == coordinate);
+		}
+
+		public ICell GetNearestCell(Vector3 position) {
+			ICell nearest = _cells[0];
+			for (int i = 0; i < _cells.Count; i++) {
+				if ((_cells[i].WorldPosition - position).sqrMagnitude < (nearest.WorldPosition - position).sqrMagnitude)
+					nearest = _cells[i];
+			}
+			return nearest;
+		}
+
+		public int GetCostPath(ICell currentPlayerCell, ICell cellToMove) {
+			Vector2Int increment = new(
+			(int)Mathf.Sign(cellToMove.Coordinate.x - currentPlayerCell.Coordinate.x),
+			(int)Mathf.Sign(cellToMove.Coordinate.y - currentPlayerCell.Coordinate.y));
+			Vector2Int currentCoordinate = currentPlayerCell.Coordinate;
+			int allCost = 0;
+			while (currentCoordinate != cellToMove.Coordinate) {
+				currentCoordinate += increment;
+				ICell newCell = GetCellByCoordinate(currentCoordinate);
+				if (newCell.IsBlock || newCell.IsLock)
+					return -1;
+				allCost += newCell.Cost;
+			}
+			return allCost;
+		}
 	}
 }
